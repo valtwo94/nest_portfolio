@@ -18,13 +18,15 @@ import { PaginationQueryDto } from '../common/dto/pagination-query.dto';
 import { Public } from '../common/decorators/public.decorator';
 import { ParseIntPipe } from '../common/pipes/parse-int.pipe';
 import { Protocol } from '../common/decorators/protocal.decorator';
+import { ApiForbiddenResponse, ApiTags } from '@nestjs/swagger';
 
-
+@ApiTags('coffees')
 @Controller('coffees')
 export class CoffeesController {
   constructor(private readonly coffeesService: CoffeesService) {
   }
 
+  @ApiForbiddenResponse({description: '미승인', })
   @Public()
   @Get()
   findAll(@Protocol('https') protocol: string, @Query() paginationQuery: PaginationQueryDto) {

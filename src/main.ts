@@ -18,8 +18,8 @@ async function bootstrap() {
   }))
 
   const options = new DocumentBuilder()
-    .setTitle('Ilivcoffee')
-    .setDescription('Coffee application')
+    .setTitle('커피 앱 API 문서')
+    .setDescription('')
     .setVersion('1.0')
     .build()
   const document = SwaggerModule.createDocument(app, options);
